@@ -1,6 +1,9 @@
 import { makeAutoObservable } from 'mobx'
 import { Dish } from '../interfaces'
 
+/**
+ * @description Очередь приготовленных блюд, которые нужно выносить клиентам.
+ */
 export interface IDishesStore {
   dishes: Dish[]
   placeDish: (dish: Dish) => void

@@ -6,6 +6,9 @@ type TableId = string
 type ClientId = string
 type OrderId = string
 
+/**
+ * @description Хранилище текущих заказов с разными статусами.
+ */
 export interface IOrdersStore {
   orders: Order[]
 

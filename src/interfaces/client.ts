@@ -1,4 +1,4 @@
 export type Client = {
   id: string
-  // @NOTE: you could also add some data here
+  // @NOTE: также можем добавить любые другие нужные данные
 }

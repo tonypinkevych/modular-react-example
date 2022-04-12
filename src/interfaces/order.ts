@@ -9,5 +9,5 @@ export type Order = {
     | 'waiting-for-client'
     | 'waiting-for-payment'
     | 'closed'
-  // @NOTE: you could also add some data here
+  // @NOTE: также можем добавить любые другие нужные данные
 }

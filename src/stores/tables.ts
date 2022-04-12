@@ -5,6 +5,9 @@ import { AllTablesFulfilledException, Result } from '../exceptions'
 type TableId = string
 type ClientId = string
 
+/**
+ * @description Хранилище всех столиков и их загруженность.
+ */
 export interface ITablesStore {
   tables: Record<TableId, ClientId | null>
 
@@ -18,7 +21,7 @@ export interface ITablesStore {
 }
 
 export class TablesStore implements ITablesStore {
-  // @NOTE: imagine we have only 5 tables in our restaurant
+  // @NOTE: представим, что в нашем ресторане есть всего 5 столиков.
   tables: Record<TableId, ClientId | null> = {
     'table-1': null,
     'table-2': null,

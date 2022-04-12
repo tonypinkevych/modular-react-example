@@ -3,6 +3,9 @@ import { Client } from '../interfaces'
 
 type ClientId = string
 
+/**
+ * @description Очередь клиентов, которые ждут посадки за столик.
+ */
 export interface IClientsStore {
   clients: Client[]
   addToQueue: () => ClientId

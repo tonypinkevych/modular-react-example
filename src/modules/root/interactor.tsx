@@ -27,7 +27,7 @@ export const useRootInteractor = ({
   const [isClientsInQueue, setIsClientsInQueue] = React.useState(false)
   const [isClientAtTable, setIsClientAtTable] = React.useState(false)
 
-  // @NOTE: listen for new clients
+  // @NOTE: ждём изменения в очереди клиентов
   React.useEffect(() => {
     const subscription = autorun(() => {
       const clients = clientsStore.clients
@@ -43,7 +43,7 @@ export const useRootInteractor = ({
     return subscription
   }, [])
 
-  // @NOTE: listen to changes of tables
+  // @NOTE: ждём изменения в конфигурации столиков
   React.useEffect(() => {
     const subscription = autorun(() => {
       const listOfFulfilledTables = tablesStore.fulfilledTables

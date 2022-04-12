@@ -68,7 +68,7 @@ export const useWaiterInteractor = ({
     [ordersStore]
   )
 
-  // @NOTE: listen to changes of dishes
+  // @NOTE: ждём изменений в очереди приготовленных блюд
   React.useEffect(() => {
     const subscription = autorun(async () => {
       const promises = dishesStore.dishes.map(serve)
@@ -78,7 +78,7 @@ export const useWaiterInteractor = ({
     return subscription
   }, [])
 
-  // @NOTE: listen of orders which should be getting paid
+  // @NOTE: ждём изменений по заказам, которые ждут оплаты
   React.useEffect(() => {
     const subscription = autorun(async () => {
       const ordersWaitingForPayment = ordersStore.orders.filter(

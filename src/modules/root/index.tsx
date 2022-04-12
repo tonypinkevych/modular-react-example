@@ -9,6 +9,17 @@ import { Waiter } from '../waiter'
 import { useStores } from '../../stores'
 
 export interface IProps {}
+/**
+ * @description аналог ресторана. Решает когда и какой модуль должен быть представлен.
+ * Cook (повар) в нашем случае должен быть активен всегда. Он выполняет утилитарную функцию.
+ * Hostess (хостес) и Waiter (официант) появляются только когда для них есть работа.
+ * Они её выполняют и отключаются.
+ *
+ * В данный момент почти все действия выполняются автоматически. Поэтому
+ * @todo нужно добавить возможность клиенту вызывать разные требования:
+ * 1. Посадку за столик;
+ * 2. Пожелания по заказу.
+ */
 export const Root: React.FC<IProps> = observer(() => {
   const { clientsStore, tablesStore, ordersStore } = useStores()
   const interactor = useRootInteractor({
