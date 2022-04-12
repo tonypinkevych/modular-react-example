@@ -1,0 +1,91 @@
+{
+  "module-templates.engine": "handlebars",
+  "module-templates.templates": {
+    "react-module": {
+      "displayName": "React Module",
+      "defaultPath": "src/modules",
+      "folder": "{{kebab name}}",
+      "questions": {
+        "name": "Module name"
+      },
+      "files": [
+        {
+          "name": "index.tsx",
+          "content": [
+            "import * as React from 'react'",
+            "import { observer } from 'mobx-react-lite'",
+            "",
+            "import { use{{ pascal name }}Interactor } from './interactor'",
+            "import { {{ pascal name }}Router } from './router'",
+            "",
+            "export interface IProps {}",
+            "export const {{ pascal name }}: React.FC<IProps> = observer(() => {",
+            "  const interactor = use{{ pascal name }}Interactor()",
+            "",
+            "  return <{{ pascal name }}Router interactor={interactor} />",
+            "})"
+          ]
+        },
+        {
+          "name": "interactor.tsx",
+          "content": [
+            "export interface I{{ pascal name }}Interactor {",
+            "  exampleMethod: () => Promise<void>",
+            "  children: {",
+            "    firstChild: boolean",
+            "  }",
+            "}",
+            "",
+            "export const use{{ pascal name }}Interactor =",
+            "  (): I{{ pascal name }}Interactor => {",
+            "    return {",
+            "      exampleMethod: async () => {},",
+            "      children: {",
+            "        firstChild: true,",
+            "      },",
+            "    }",
+            "  }"
+          ]
+        },
+        {
+          "name": "interactor.test.tsx",
+          "content": [
+            "import { renderHook, act } from '@testing-library/react-hooks'",
+            "",
+            "import { use{{ pascal name }}Interactor } from './interactor'",
+            "",
+            "describe('use{{ pascal name }}Interactor', () => {",
+            "  test('example', async () => {",
+            "    // GIVEN: regular use{{ pascal name }}Interactor",
+            "    const { result: sut } = renderHook(() =>",
+            "      use{{ pascal name }}Interactor()",
+            "    )",
+            "",
+            "    // WHEN: call example",
+            "    await act(() => sut.current.exampleMethod())",
+            "",
+            "    // THEN: should be defined",
+            "    expect(sut).toBeDefined()",
+            "  })",
+            "})"
+          ]
+        },
+        {
+          "name": "router.tsx",
+          "content": [
+            "import * as React from 'react'",
+            "",
+            "import { I{{ pascal name }}Interactor } from './interactor'",
+            "",
+            "export interface IProps {",
+            "  interactor: I{{ pascal name }}Interactor",
+            "}",
+            "export const {{ pascal name }}Router: React.FC<IProps> = ({",
+            "  interactor,",
+            "}) => <>{interactor.children.firstChild && <div>inject child here</div>}</>"
+          ]
+        }
+      ]
+    }
+  }
+}

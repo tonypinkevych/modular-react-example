@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "asbjornh.vscode-module-templates",
+    "EditorConfig.EditorConfig"
+  ]
+}
