@@ -1,0 +1,35 @@
+{
+  "extends": [
+    "airbnb-typescript",
+    "plugin:import/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "prettier"
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "plugins": ["jsx-a11y"],
+  "rules": {
+    "semi": ["error", "never"],
+    "@typescript-eslint/semi": ["error", "never"],
+    "@typescript-eslint/no-shadow": "warn",
+    "max-len": "off",
+    "import/extensions": "off",
+    "import/named": "off",
+    "import/prefer-default-export": "off",
+    "react/prop-types": "off",
+    "no-shadow": "off",
+    "react/no-array-index-key": "off",
+    "react/destructuring-assignment": "warn",
+    "react/jsx-props-no-spreading": "off",
+    "consistent-return": "off",
+    "react/no-unescaped-entities": "warn",
+    "jsx-a11y/anchor-has-content": "off",
+    "import/no-extraneous-dependencies": "off",
+    "jsx-a11y/label-has-associated-control": "warn",
+    "max-classes-per-file": ["error", 2],
+    "no-underscore-dangle": "off",
+    "react/display-name": 0
+  }
+}
